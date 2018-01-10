@@ -1,14 +1,14 @@
 <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0F2U3y3k0z1z0W2y2H0e/git-simple.jpg" width="100%" style="width:100%" />
 
-A collection of shell scripts for making **create**, **pulling**, **branching**, **merging**, **pushing** and **publishing** with Git fast and painless.
+A collection of shell scripts for making **create**, **pulling**, **branching**, **merging**, **pushing** and **publishing** with Git fast and painless. Largely inspired by http://github.com/jamiew/git-friendly
 
-Git sometimes requires typing two or three commands just to execute something basic like fetching new code. git-simple adds a few new commands — `pull`, `push`, `branch` and `merge` which:
+Git sometimes requires typing two or three commands just to execute something basic like fetching new code. git-simple adds a few new commands — `gremote`, `gpull`, `gpush`, `gbranch`, `gmerge` and `gpublish` which:
 
-* **gremote** creates a new remote Github repository;
-* **gpush** also copies a GitHub compare URL to your clipboard;
-* **gpull** runs commands like `bundle install`, `npm install`, `yarn install`, and `composer install` if necessary;
-* **gbranch** creates and tracks remote branches if they are available.
-* **gpublish** publish your sphinx docs on Github gh-pages.
+* **gremote** Creates a remote Github repository from the current local directory;
+* **gpush** Sends your local branch changes to the remote branch;
+* **gpull** Pulls remote changes using rebase & tries to rebundle;
+* **gbranch** Creates and tracks remote branches if they are available.
+* **gpublish** Publish your sphinx docs on Github gh-pages.
 
 *Less time fighting Git.*
 
@@ -51,6 +51,7 @@ You now have new awesome commands: **gremote**, **gpull**, **gpush**, **gbranch*
 Example session:
 
 ```bash
+$ gremote
 $ gpull
 $ gbranch awesomeness
 $ echo "BUMP" >> README
@@ -58,10 +59,20 @@ $ git commit -a -m "Righteous bump"
 $ gbranch master
 $ gmerge awesomeness
 $ gpush
+$ gpublish
 ```
 
 
 ## Commands
+
+### `gremote`
+
+* Creates bare remote repository;
+* Initializes local repository & push to remote;
+
+```
+gremote
+```
 
 ### `gpull`
 
@@ -71,32 +82,40 @@ $ gpush
 * pop your stash;
 * run `bundle install`, `npm install`, `yarn install`, `bower install` or `composer install` if there are any changes in `Gemfile`, `package.json`, etc.
 
+```
+gpull
+```
+
 ### `gpush`
 
 * Push your changes to the remote;
 * copy a compare URL, like [https://github.com/parrondo/git-simple/compare/e96033...5daed4](https://github.com/parrondo/git-simple/compare/e96033...5daed4), to your clipboard (works on Mac and Linux).
 
-Any extra arguments will be passed through to `git push`, for example `push -f`.
+Any extra arguments [arg] will be passed through to `git push`, for example `push -f`.
+
+```
+gpush [arg]
+```
 
 ### `gbranch`
 
 Switch branches or create new local branch if it doesn’t exist. Intelligently sets up remote branch tracking so you can just type `git pull` and not always `git pull origin newbranch`. If no argument specified, will list all local and remote branches. 
 
 ```
-branch [name]
+gbranch [name]
 ```
 
 Supports branch deletion with `-d` or `-D` keys:
 
 ```
-branch -d [name]
-branch -D [name]
+gbranch -d [name]
+gbranch -D [name]
 ```
 
 And switching to a previous branch with `-`:
 
 ```
-branch -
+gbranch -
 ```
 
 ### `gmerge`
@@ -105,8 +124,9 @@ branch -
 * rebase first if the branch is local-only.
 
 ```
-merge [name]
+gmerge [name]
 ```
+
 
 ## Configuration
 
@@ -125,11 +145,11 @@ export GIT_FRIENDLY_NO_BUNDLE=true
 ```
 
 
-## Bonus: Pimp Your Configs
+## Enhance Your Configs
 
 We strongly recommend editing your global `~/.gitconfig` and adding features like ANSI color, command aliases (e.g. `git st` instead of `git status`), automatic remote tracking and more. Check out [this sample ~/.gitconfig](https://gist.github.com/668161) to get started.
 
-We also recommend adding the current Git branch to your Terminal prompt (PS1) or you’ll quickly lose your place — here is a [pimp_prompt() bash function](https://gist.github.com/790086) which goes in your `~/.bash_profile` or `~/.bashrc`, then type `source ~/.bashrc` to reload.
+We also recommend adding the current Git branch to your Terminal prompt (PS1) or you’ll quickly lose your place — here is [An informative and fancy bash prompt for Git users](https://github.com/magicmonty/bash-git-prompt).
 
 ![](http://wow.sapegin.me/image/0Z1C1U00281j/pimped-prompt.jpg)
 
@@ -140,21 +160,12 @@ MIT license.
 
 Fork away, do whatever. Pull requests welcome.
 
-Following the practices of [Rubinius](http://www.programblings.com/2008/04/15/rubinius-for-the-layman-part-2-how-rubinius-is-friendly/), anyone who submits an accepted patch is granted a commit bit (write access to the repository).
-
-Following the practices of [FAT Lab](http://fffff.at), anyone who submits an accepted patch is granted credit and attribution bits.
-
-
 ## Contributors
 
-* [Ethan Bruning](https://github.com/ebruning) ([ebruning](https://github.com/ebruning))
-* [Rafael Corrêa Gomes](https://rafaelstz.github.io/) ([rafaelstz](https://github.com/rafaelstz))
-* [Harold Dennison](http://hdennison.com/) ([hdennison](https://github.com/hdennison))
-* [CJ Lazell](http://cj.io/) ([cj](http://github.com/cj))
-* [Maciej Małecki](http://twitter.com/mmalecki) ([mmalecki](https://github.com/mmalecki))
-* [John Manoogian](II":http://jm3.net) ([jm3](http://github.com/jm3))
-* [Andriy Prokopenko](http://andriyprokopenko.com/) ([sleepyboy](https://github.com/sleepyboy))
-* [Artem Sapegin](http://sapegin.me/) ([sapegin](https://github.com/sapegin))
-* [Ezekiel Templin](http://blog.ezkl.org/) ([ezkl](https://github.com/ezkl))
-* [Jamie Wilkinson](http://jamiedubs.com) ([parrondo](http://github.com/parrondo))
-* Ben Zörb ([bezoerb](https://github.com/bezoerb))
+* [Parrondo](https://github.com/parrondo) ([parrondo](https://github.com/parrondo))
+
+## References
+
+* `git-friendly`: http://github.com/jamiew/git-friendly ([jamiew](http://github.com/jamiew/git-friendly))
+
+

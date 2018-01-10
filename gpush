@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Usage: push
+# Usage: gpush
 #
 # Send your local branch changes to the remote branch,
 # and copy the relevant GitHub 'compare' URL to your clipboard (Mac/Linux only)

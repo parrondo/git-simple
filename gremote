@@ -3,7 +3,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# git-remote
+# gremote
 # Creates a remote git repository from the current local directory
 
 # Configuration

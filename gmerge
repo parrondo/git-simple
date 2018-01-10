@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Usage: merge [branchname]
+# Usage: gmerge [branchname]
 #
 # Tries to merge local branch "branchname" into the current branch
 # It will stop you if you are behind & need to pull 1st

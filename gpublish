@@ -6,16 +6,14 @@ IFS=$'\n\t'
 shopt -s extglob #if not active for patterns (..|..|..)
 
 #
-# Usage: git-puplish (from project root)
+# Usage: gpublish (from project root)
 #
 # Publish sphinx docs from <project>/docs master branch on github <project> gh-pages branch.
 # It is asummed the documentation is build on "source_doc_dir".
 #
 #
-# This bash script make use of git-friendly scripts.
-# A collection of shell scripts for making pulling, branching, and merging with Git fast 
-# Forked from:https://github.com/jamiew/git-friendly
-# git-friendly has 4 scripts: pull, branch, merge and push.
+# This bash script make use of anothers git-simple scripts.
+#http://github.com/parrondo/git-simple
 #
 # Repository structure asummed
 # project/
@@ -25,9 +23,9 @@ shopt -s extglob #if not active for patterns (..|..|..)
 source_doc_dir="docs/_build/html" #You may look at your sphinx Makefile
 
 # Get a clean master branch from "proj/"
-branch master
+gbranch master
 echo "get a clean master branch assuming it is actual"
-pull
+gpull
 
 # Build the docs
 # you are in <project> master
@@ -40,11 +38,11 @@ cd ..
 
 # Commit and push previous changes before publish
 # <project> master
-push
+gpush
 
 # Switch branches and pull the data we want
 # <project> master
-branch gh-pages
+gbranch gh-pages
 
 # Delete all except .git, .gitignore, docs
 # <project> gh-pages
@@ -67,10 +65,10 @@ git commit -a -m "new pages version $(date)"
 
 # Push to github
 # <project> gh-pages
-push
+gpush
 echo "Documentation published!"
 
 # Switch back to master branch
 # <project> gh-pages
-branch master
+gbranch master
 
