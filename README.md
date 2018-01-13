@@ -1,4 +1,4 @@
-<img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0F2U3y3k0z1z0W2y2H0e/git-simple.jpg" width="100%" style="width:100%" />
+![example of simplicity](./docs/images/README/hi_res_image1_small.jpg "Example of simplicity (`Free Wheeling`)")
 
 A collection of shell scripts for making **create**, **pulling**, **branching**, **merging**, **pushing** and **publishing** with Git fast and painless. Largely inspired by http://github.com/jamiew/git-friendly
 
@@ -46,7 +46,7 @@ export PATH=~/dev/git-simple:$PATH
 
 You now have new awesome commands: **gremote**, **gpull**, **gpush**, **gbranch**, **gmerge**, **gpublish**:
 
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/3S3H2W1l1F3d1m2x3w1U/pull.png)
+![](./docs/images/README/Captura_de_pantalla_de_2018-01-11_19-19-06.jpg "")
 
 Example session:
 
@@ -167,5 +167,5 @@ Fork away, do whatever. Pull requests welcome.
 ## References
 
 * `git-friendly`: http://github.com/jamiew/git-friendly ([jamiew](http://github.com/jamiew/git-friendly))
-
+* `Free Wheeling image`: https://www.ronmarks.com/catalogue/free-wheeling
 
