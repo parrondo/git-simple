@@ -23,26 +23,18 @@ shopt -s extglob #if not active for patterns (..|..|..)
 source_doc_dir="docs/_build/html" #You may look at your sphinx Makefile
 
 # Get a clean master branch from "proj/"
-gbranch master
+gbranch gh-pages
 echo "get a clean master branch assuming it is actual"
-gpull
+gmerge master
 
 # Build the docs
-# you are in <project> master
+# you are in <project> gh-pages
 cd docs
 
-# <project>/docs master
+# <project>/docs gh-pages
 make clean
 make html
 cd ..
-
-# Commit and push previous changes before publish
-# <project> master
-gpush
-
-# Switch branches and pull the data we want
-# <project> master
-gbranch gh-pages
 
 # Delete all except .git, .gitignore, docs
 # <project> gh-pages
@@ -71,4 +63,6 @@ echo "Documentation published!"
 # Switch back to master branch
 # <project> gh-pages
 gbranch master
+echo "Switch back to master branch"
+
 

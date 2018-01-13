@@ -151,7 +151,7 @@ We strongly recommend editing your global `~/.gitconfig` and adding features lik
 
 We also recommend adding the current Git branch to your Terminal prompt (PS1) or you’ll quickly lose your place — here is [An informative and fancy bash prompt for Git users](https://github.com/magicmonty/bash-git-prompt).
 
-![](http://wow.sapegin.me/image/0Z1C1U00281j/pimped-prompt.jpg)
+![pif](http://wow.sapegin.me/image/0Z1C1U00281j/pimped-prompt.jpg)
 
 
 ## License
