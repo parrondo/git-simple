@@ -5,10 +5,11 @@ A collection of shell scripts for making **create**, **pulling**, **branching**,
 Git sometimes requires typing two or three commands just to execute something basic like fetching new code. git-simple adds a few new commands — `gremote`, `gpull`, `gpush`, `gbranch`, `gmerge` and `gpublish` which:
 
 * **gremote** Creates a remote Github repository from the current local directory;
+* **gmerge** Tries to merge a local branch into the current branch;
 * **gpush** Sends your local branch changes to the remote branch;
 * **gpull** Pulls remote changes using rebase & tries to rebundle;
-* **gbranch** Creates and tracks remote branches if they are available.
-* **gpublish** Publish your sphinx docs on Github gh-pages.
+* **gbranch** Creates and tracks remote branches if they are available;
+* **gpublish** Publish your sphinx docs on Github gh-pages;
 
 *Less time fighting Git.*
 
