@@ -6,6 +6,17 @@
 # It will stop you if you are behind & need to pull 1st
 #
 
+# Error function
+merge_error()
+{
+	echo "$1" 1>&2
+        git config merge.tool vimdiff
+        git config merge.conflictstyle diff3
+        git config mergetool.prompt false
+        git mergetool
+	exit 1
+}
+
 remote="origin"
 branch=$1
 current_branch=$(git branch 2>/dev/null|grep -e ^* | tr -d \*)
@@ -29,7 +40,7 @@ fi
 
 echo "✂️  Merge $branch into $current_branch"
 git checkout $current_branch
-git merge $branch || exit 1
+git merge $branch || merge_error "Cannot merge the branch!  Trying to solve."
 
 echo
 echo "🦄  Done"
