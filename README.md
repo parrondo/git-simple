@@ -128,6 +128,14 @@ gbranch -
 gmerge [name]
 ```
 
+### `gpublish`
+
+* Publish sphinx docs from <project>/docs master branch on github <project> gh-pages branch;
+* It is asummed the documentation is build on "source_doc_dir" (default: "docs/_build/html").
+
+```
+gpublish (from project root)
+```
 
 ## Configuration
 
